@@ -1,7 +1,7 @@
 # CS2 Match Analyzer 🎮
 
 A desktop application that automatically analyzes CS2 demo files and shows player statistics.
-
+(The application analyzes the matches you download within the game, so make sure you have downloaded your matches in the game before running the program!)
 ## Features
 - Automatically finds CS2 demo files
 - Kill, Death, K/D ratio, Headshot percentage
