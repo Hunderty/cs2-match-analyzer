@@ -61,3 +61,21 @@ def kazanma_tahmini(df):
     yeni_mac = [[20, 10, 5]]
     tahmin = model.predict(yeni_mac)
     print(f"20 kill, 10 death, 5 asist -> {'Kazandi' if tahmin[0] == 1 else 'Kaybetti'}")
+def harita_kazanma(df):
+    print("\n=== Harita Bazinda Kazan/Kaybet ===")
+    sonuclar = df.groupby("harita")["kazandi"].agg(["sum", "count"])
+    sonuclar.columns = ["kazanma", "toplam"]
+    sonuclar["kayip"] = sonuclar["toplam"] - sonuclar["kazanma"]
+    sonuclar["oran"] = (sonuclar["kazanma"] / sonuclar["toplam"] * 100).round(1)
+    print(sonuclar)
+    haritalar = sonuclar.index
+    x = range(len(haritalar))
+    plt.figure(figsize=(8, 5))
+    plt.bar(x, sonuclar["kazanma"], label="Kazandi", color="green", width=0.4)
+    plt.bar([i + 0.4 for i in x], sonuclar["kayip"], label="Kaybetti", color="red", width=0.4)
+    plt.xticks([i + 0.2 for i in x], haritalar)
+    plt.title("Harita Bazinda Kazan/Kaybet")
+    plt.ylabel("Mac Sayisi")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
