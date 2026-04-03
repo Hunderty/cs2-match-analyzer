@@ -1,24 +1,25 @@
-# CS2 Maç Analizci 🎮
+# CS2 Match Analyzer 🎮
 
-CS2 demo dosyalarını (.dem) analiz eden, oyuncu istatistiklerini ve grafiklerini gösteren bir uygulama.
+A desktop application that automatically analyzes CS2 demo files and shows player statistics.
 
-## Özellikler
-- Demo dosyasını yükle, istatistikleri otomatik çıkar
-- Kill, death, K/D oranı, headshot oranı
-- Oyuncu bazlı kill sıralaması grafiği
-- Makine öğrenmesi ile kazanma tahmini
+## Features
+- Automatically finds CS2 demo files
+- Kill, Death, K/D ratio, Headshot percentage
+- Player based kill ranking
+- No setup required, just install and run!
 
-## Kurulum
+## Download
+👉 [Download Latest Version](https://github.com/Hunderty/cs2-match-analyzer/releases/latest)
 
-1. Repoyu indir:git clone https://github.com/kullaniciadin/cs2-match-analyzer
-2. Kütüphaneleri yükle:pip install -r requirements.txt
-3. Uygulamayı çalıştır:streamlit run app.py
-4. Tarayıcıda açılan sayfaya CS2 demo dosyanı (.dem) yükle!
+## Installation
+1. Download `CS2-Mac-Analizci-Setup.exe`
+2. Run the installer (Next → Next → Finish)
+3. Launch the app from your desktop
+4. Click on a demo file and hit "Analiz Et"!
 
-## Kullanılan Teknolojiler
+## Technologies Used
 - Python
-- Streamlit
+- PyQt6
 - Pandas
-- Matplotlib
-- Scikit-learn
 - Demoparser2
+- Inno Setup
