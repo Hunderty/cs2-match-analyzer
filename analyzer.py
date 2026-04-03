@@ -38,3 +38,26 @@ def grafik_ciz(df):
     
     plt.tight_layout()
     plt.show()
+    
+def kazanma_tahmini(df):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import accuracy_score
+
+    print("\n=== Kazanma Tahmini (ML) ===")
+
+    X = df[["kill", "death", "asist"]]
+    y = df["kazandi"]
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Model dogrulugu: %{accuracy*100:.1f}")
+
+    yeni_mac = [[20, 10, 5]]
+    tahmin = model.predict(yeni_mac)
+    print(f"20 kill, 10 death, 5 asist -> {'Kazandi' if tahmin[0] == 1 else 'Kaybetti'}")
