@@ -1,2 +1,5 @@
 *.dem
 *.info
+dist/
+build/
+*.spec
